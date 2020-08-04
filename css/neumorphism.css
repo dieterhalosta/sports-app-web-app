@@ -2462,7 +2462,7 @@ pre code {
     background-color: #e6e7ee;
     border-color: #D1D9E6;
     outline: 0;
-    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF, none;
+    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
 }
 
 .form-control:-ms-input-placeholder {
@@ -5597,7 +5597,7 @@ input[type="button"].btn-block {
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
-    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF, none;
+    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
 }
 
 .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
@@ -5869,15 +5869,15 @@ input[type="button"].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 1px #e6e7ee, none;
+    box-shadow: 0 0 0 1px #e6e7ee;
 }
 
 .custom-range:focus::-moz-range-thumb {
-    box-shadow: 0 0 0 1px #e6e7ee, none;
+    box-shadow: 0 0 0 1px #e6e7ee;
 }
 
 .custom-range:focus::-ms-thumb {
-    box-shadow: 0 0 0 1px #e6e7ee, none;
+    box-shadow: 0 0 0 1px #e6e7ee;
 }
 
 .custom-range::-moz-focus-outer {
@@ -16849,7 +16849,7 @@ a.text-slack:hover, a.text-slack:focus {
 }
 
 .text-hide {
-    font: 0/0 a;
+    font: 0/0a;
     color: transparent;
     text-shadow: none;
     background-color: transparent;
@@ -25432,7 +25432,7 @@ button.section-slack:focus {
 .section {
     position: relative;
     padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1.2rem;
 }
 
 .section-header {
@@ -25445,7 +25445,7 @@ button.section-slack:focus {
     .section {
         position: relative;
         padding-top: 6rem;
-        padding-bottom: 6rem;
+        padding-bottom: 3rem;
     }
 
     .section-header {
@@ -25472,6 +25472,11 @@ button.section-slack:focus {
     .section-sm {
         padding-top: 4rem;
         padding-bottom: 4rem;
+    }
+
+    .section-s {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 }
 
