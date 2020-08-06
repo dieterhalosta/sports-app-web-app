@@ -6148,7 +6148,7 @@ input[type="button"].btn-block {
     padding-top: 0.0625rem;
     padding-bottom: 0.0625rem;
     margin-right: 1rem;
-    font-size: 1.25rem;
+    font-size: 2.25rem;
     line-height: inherit;
     white-space: nowrap;
 }
@@ -6618,6 +6618,8 @@ input[type="button"].btn-block {
 
 .card-img-top {
     width: 100%;
+    height: 15vw;
+    object-fit: cover;
     border-top-left-radius: calc(0.55rem - 0.0625rem);
     border-top-right-radius: calc(0.55rem - 0.0625rem);
 }
@@ -18420,6 +18422,7 @@ main {
 
 img {
     max-width: 100%;
+    max-height: 30%;
 }
 
 strong {
@@ -25466,7 +25469,7 @@ button.section-slack:focus {
 
     .section-lg {
         padding-top: 2rem;
-        padding-bottom: 8rem;
+        padding-bottom: 1rem;
     }
 
     .section-sm {
@@ -25476,7 +25479,7 @@ button.section-slack:focus {
 
     .section-s {
         padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-bottom: 1rem;
     }
 }
 
