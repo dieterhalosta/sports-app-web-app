@@ -31705,7 +31705,8 @@ textarea[resize="horizontal"] {
 
 .profile-image {
     width: 10rem;
-    height: 13.5rem;
+    /*height: 13.5rem;*/
+    height: 14vw;
 }
 
 .profile-image-small {
