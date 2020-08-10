@@ -4,25 +4,25 @@ window.Events = {
     getEvents: function (){
         $.ajax({
             method:"GET",
-            url: Events.API_URL + "/events"
+            url: Events.API_URL + "/games"
         }).done(function (response){
             console.log(response)
             Events.displayEvents(response.content);
         })
     },
 
-    getEventHtml: function (event){
+    getEventHtml: function (event, mainUser){
         return `
         <div class="col-12 col-md-6 col-lg-4 mb-5">
             <div class="card bg-primary border-light shadow-soft">
                 <div class="card-header p-3">
-                    <img src="${event.imageUrl}" class="card-img-top rounded" alt="Event Photo">
+                    <img src="${event.imageUrl}" class="card-img-top rounded" alt="${event.name} Photo">
                 </div>
                 <div class="card-body pt-2">
                     <div class="media d-flex align-items-center justify-content-between">
                         <div class="post-group">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="User Name">
-                                <img class="avatar-sm mr-2 img-fluid rounded-circle" src="./assets/img/team/profile-picture-2.jpg" alt="User Photo"> UserName
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="${mainUser.firstName} ${mainUser.firstName}">
+                                <img class="avatar-sm mr-2 img-fluid rounded-circle" src="${mainUser.photoUrl}" alt="${mainUser.firstName} ${mainUser.firstName} Photo"> ${mainUser.firstName} ${users.firstName}
                             </a>
                         </div>
                         <div class="d-flex align-items-center pr-1">
@@ -50,8 +50,8 @@ window.Events = {
                                             <img src="${event.imageUrl}" class="card-img-top rounded" alt="Event Photo">
                                         </span>
                                         <h2 class="h4 my-3">${event.name}</h2>
-                                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="User Name" class="p-1">
-                                            <img class="avatar-sm mr-2 img-fluid rounded-circle" src="./assets/img/team/profile-picture-2.jpg" alt="User Photo"> Michael Boxer
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="${mainUser.firstName} ${mainUser.firstName} Name" class="p-1">
+                                            <img class="avatar-sm mr-2 img-fluid rounded-circle" src=".${mainUser.photoUrl}" alt="User Photo"> ${mainUser.firstName} ${mainUser.firstName}
                                         </a>
                                         <span class="small p-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Date"><span class="far fa-calendar-alt mr-2"></span>${event.date}</span>
                                         <span class="small p-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Participants"><span class="far fa-user-circle p-0"></span> ${event.participants}</span>
@@ -76,7 +76,7 @@ window.Events = {
     displayEvents: function (events){
         let eventsHtml = '';
 
-        events.forEach(event => eventsHtml += Events.getEventHtml(event));
+        events.forEach(event => eventsHtml += Events.getEventHtml(event, mainUser));
 
         $(`.eventsSection .row:first-child`).html(eventsHtml);
     },
