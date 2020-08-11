@@ -6553,6 +6553,10 @@ input[type="button"].btn-block {
     margin-bottom: 0;
 }
 
+.card-text {
+    height: 4rem;
+}
+
 .card-text:last-child {
     margin-bottom: 0;
 }

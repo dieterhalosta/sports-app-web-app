@@ -20,7 +20,7 @@ window.User = {
                     <div class="card bg-primary shadow-inset border-light text-center">
                         <div class="card-header">
                             <div class="profile-image bg-primary shadow-inset border border-light rounded mx-auto p-3 mt-n6">
-                                <img src="${user.photoUrl} " class="card-img-top rounded" alt="${user.firstName} ${user.lastName}">
+                                <img src="${user.photoUrl}" class="card-img-top rounded" alt="${user.firstName} ${user.lastName}">
                             </div>
                         </div>
                         <div class="card-body pb-5">
