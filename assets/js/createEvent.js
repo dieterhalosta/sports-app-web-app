@@ -16,22 +16,12 @@ window.CreateEvent = {
             url: CreateEvent.API_URL + "/events",
             contentType: 'application/json',
             data: JSON.stringify(requestBody)
-        }).done(function (){
-            CreateEvent.addEventToGame();
-        })
-    },
-
-    getLastEventId: function (){
-        $.ajax({
-            method:"GET",
-            url: CreateEvent.API_URL + "/events"
         }).done(function (response){
-            console.log(response)
+            CreateEvent.addEventToGame(response.id);
         })
     },
 
-    addEventToGame: function (){
-        let eventId = 70
+    addEventToGame: function (eventId){
         $.ajax({
             method: "PUT",
             url: CreateEvent.API_URL + "/games?eventId=" + eventId,
