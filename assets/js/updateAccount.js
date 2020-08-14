@@ -62,10 +62,6 @@ window.User = {
                                                 <input class="form-control" id="phoneNumber" placeholder="${user.phoneNumber}" type="text" aria-label="contact name input">
                                             </div>
                                         </div>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" aria-label="File upload">
-                                            <label class="custom-file-label" for="customFile">Change profile photo</label>
-                                        </div>
                                         <!-- End of Form -->
                                     </form>
                                     <div class="card-footer px-0 mx-auto">

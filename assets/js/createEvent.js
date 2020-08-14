@@ -30,10 +30,9 @@ window.CreateEvent = {
             let eventDescription = $('#descriptionField').val();
             let eventParticipants = $('#participantsField').val();
             let eventLocation = $('#locationField').val();
-            let eventDate = $('#InputDate').val();
-            let newDate = eventDate.split("/").reverse().join("-");
+            let eventDate = new Date($('#InputDate').val())
 
-            CreateEvent.createEvent(eventName, newDate, eventDescription, eventLocation, eventParticipants);
+            CreateEvent.createEvent(eventName, eventDate, eventDescription, eventLocation, eventParticipants);
 
         })
     }
