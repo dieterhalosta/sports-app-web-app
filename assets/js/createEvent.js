@@ -17,7 +17,7 @@ window.CreateEvent = {
             contentType: 'application/json',
             data: JSON.stringify(requestBody)
         }).done(function (){
-            CreateEvent.getLastEventId();
+            CreateEvent.addEventToGame();
         })
     },
 
