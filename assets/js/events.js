@@ -60,7 +60,7 @@ window.Events = {
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-sm btn-primary">Participate</button>
+                                    <button type="button" class="btn btn-sm btn-primary participate" data-event_id=${game.event.id}>Participate</button>
                                     <button type="button" class="btn btn-primary text-danger ml-auto" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
@@ -73,6 +73,24 @@ window.Events = {
         `
     },
 
+    addUserToGame: function (eventId){
+        let userId = 58
+
+        let body = {
+            userIds: [
+                userId
+            ]
+        }
+        $.ajax({
+            method:"PUT",
+            url: Events.API_URL + "/games/" + eventId,
+            contentType: 'application/json',
+            data: JSON.stringify(body)
+        }).done(function (){
+            window.location.replace('MyEvents.html')
+        })
+    },
+
     displayEvents: function (events){
         let eventsHtml = '';
 
@@ -80,6 +98,17 @@ window.Events = {
 
         $(`.eventsSection .row:first-child`).html(eventsHtml);
     },
+
+    participateToGame: function (){
+        $(`.eventsSection`).delegate('.participate', 'click', function (event){
+            event.preventDefault();
+
+            let eventId=$(this).data('event_id');
+
+            Events.addUserToGame(eventId);
+        })
+    }
 }
 
 Events.getEvents();
+Events.participateToGame();
