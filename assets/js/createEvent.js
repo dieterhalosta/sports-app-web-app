@@ -17,7 +17,43 @@ window.CreateEvent = {
             contentType: 'application/json',
             data: JSON.stringify(requestBody)
         }).done(function (){
-            console.log(requestBody)
+            CreateEvent.getLastEventId();
+        })
+    },
+
+    getLastEventId: function (){
+        $.ajax({
+            method:"GET",
+            url: CreateEvent.API_URL + "/events"
+        }).done(function (response){
+            console.log(response)
+        })
+    },
+
+    addEventToGame: function (){
+        let eventId = 70
+        $.ajax({
+            method: "PUT",
+            url: CreateEvent.API_URL + "/games?eventId=" + eventId,
+        }).done(function (){
+            CreateEvent.addUserToGame(eventId)
+        })
+    },
+
+    addUserToGame: function (eventId){
+        let userId = 58
+
+        let body = {
+            userIds: [
+                userId
+            ]
+        }
+        $.ajax({
+            method:"PUT",
+            url: CreateEvent.API_URL + "/games/" + eventId,
+            contentType: 'application/json',
+            data: JSON.stringify(body)
+        }).done(function (){
             window.location.replace('MyEvents.html')
         })
     },
