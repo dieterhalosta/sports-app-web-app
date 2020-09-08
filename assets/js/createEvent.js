@@ -44,7 +44,7 @@ window.CreateEvent = {
             contentType: 'application/json',
             data: JSON.stringify(body)
         }).done(function (){
-            window.location.replace('MyEvents.html')
+            window.location.replace('index.html')
         })
     },
 
