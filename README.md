@@ -3,6 +3,14 @@ A simple app to create and book a sports event from a catalog of events.
 
 <img src="images/Home.jpg">
 
+<img src="images/Events.jpg">
+
+<img src="images/EventBox.jpg">
+
+<img src="images/Create.jpg">
+
+<img src="images/Account.jpg">
+
 
 # Inspiration
 I wanted to consolidate the principles that I learned during my Java Bootcamp and this is also my certification project.
