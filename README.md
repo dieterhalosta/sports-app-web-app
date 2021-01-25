@@ -1,6 +1,8 @@
 # Sports App - Web App
 A simple app to create and book a sports event from a catalog of events.
 
+<img scr="images/Home.jpg">
+
 # Inspiration
 I wanted to consolidate the principles that I learned during my Java Bootcamp and this is also my certification project.
 So I created the front end for this app using Bootstrap and jQuery.
