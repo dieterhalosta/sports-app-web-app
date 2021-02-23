@@ -1,19 +1,19 @@
 window.Events = {
-    API_URL: "http://localhost:8082",
+  API_URL: "http://localhost:8082",
 
-    getEvents: function () {
-        let userId = 57;
-        $.ajax({
-            method: "GET",
-            url: Events.API_URL + "/games/" + userId
-        }).done(function (response) {
-            console.log(response)
-            Events.displayEvents(response.content);
-        })
-    },
+  getEvents: function () {
+    let userId = 57;
+    $.ajax({
+      method: "GET",
+      url: Events.API_URL + "/games/" + userId,
+    }).done(function (response) {
+      console.log(response);
+      Events.displayEvents(response.content);
+    });
+  },
 
-    getEventHtml: function (game){
-        return `
+  getEventHtml: function (game) {
+    return `
         <div class="col-12 col-md-6 col-lg-4 mb-5">
             <div class="card bg-primary border-light shadow-soft">
                 <div class="card-header p-3">
@@ -71,16 +71,16 @@ window.Events = {
                 </div>
             </div>
         </div>
-        `
-    },
+        `;
+  },
 
-    displayEvents: function (events){
-        let eventsHtml = '';
+  displayEvents: function (events) {
+    let eventsHtml = "";
 
-        events.forEach(event => eventsHtml += Events.getEventHtml(event));
+    events.forEach((event) => (eventsHtml += Events.getEventHtml(event)));
 
-        $(`.eventsSection .row:first-child`).html(eventsHtml);
-    },
-}
+    $(`.eventsSection .row:first-child`).html(eventsHtml);
+  },
+};
 
 Events.getEvents();

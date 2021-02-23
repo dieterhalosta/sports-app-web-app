@@ -1,18 +1,18 @@
 window.User = {
-    API_URL: "http://localhost:8082",
+  API_URL: "http://localhost:8082",
 
-    getUser: function (){
-        let userId = 57
-        $.ajax({
-            method:"GET",
-            url:User.API_URL + "/users/" +userId
-        }).done(function (response){
-            User.displayUser(response);
-        })
-    },
+  getUser: function () {
+    let userId = 57;
+    $.ajax({
+      method: "GET",
+      url: User.API_URL + "/users/" + userId,
+    }).done(function (response) {
+      User.displayUser(response);
+    });
+  },
 
-    getUserHtml: function (user){
-        return `
+  getUserHtml: function (user) {
+    return `
           <div class="col-md-12 col-lg-12 mb-5">
                     <div class="card bg-primary shadow-soft border-light p-2 p-md-3 p-lg-5">
                         <!-- Profile Card -->
@@ -73,78 +73,76 @@ window.User = {
                         <!-- End of Profile Card -->
                     </div>
                 </div>
-        `
-    },
+        `;
+  },
 
-    displayUser: function (user){
-        let userHtml = User.getUserHtml(user);
+  displayUser: function (user) {
+    let userHtml = User.getUserHtml(user);
 
-        $(`.UserCardInfo .row:first-child`).html(userHtml);
-    },
+    $(`.UserCardInfo .row:first-child`).html(userHtml);
+  },
 
-    updateUser: function (firstName, lastName, email, phoneNumber, photoUrl){
-        let userId = 57
-        let requestBody = {
-            firstName:firstName,
-            lastName: lastName,
-            email: email,
-            phoneNumber: phoneNumber,
-            role: "ADMIN",
-            photoUrl: photoUrl
-        }
+  updateUser: function (firstName, lastName, email, phoneNumber, photoUrl) {
+    let userId = 57;
+    let requestBody = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNumber: phoneNumber,
+      role: "ADMIN",
+      photoUrl: photoUrl,
+    };
 
-        $.ajax({
-            method:'PUT',
-            url: User.API_URL + '/users/' +userId,
-            contentType: 'application/json',
-            data: JSON.stringify(requestBody)
-        }).done(function (){
-            console.log(requestBody)
-            window.location.replace('MyAccount.html')
-        })
+    $.ajax({
+      method: "PUT",
+      url: User.API_URL + "/users/" + userId,
+      contentType: "application/json",
+      data: JSON.stringify(requestBody),
+    }).done(function () {
+      console.log(requestBody);
+      window.location.replace("MyAccount.html");
+    });
+  },
 
-    },
+  bindEvents: function () {
+    $(".UserCardInfo").delegate(".updateButton", "click", function (event) {
+      event.preventDefault();
 
-    bindEvents: function (){
-        $('.UserCardInfo').delegate('.updateButton', 'click', function (event){
-            event.preventDefault();
+      if ($("#firstName").val() == "") {
+        var fName = $("#firstName").attr("placeholder");
+      } else {
+        var fName = $("#firstName").val();
+      }
 
-            if($('#firstName').val() == ''){
-                var fName = $('#firstName').attr('placeholder');
-            } else {
-                var fName =$('#firstName').val();
-            }
+      let firstName = fName;
 
-            let firstName = fName;
+      if ($("#lastName").val() == "") {
+        var lName = $("#lastName").attr("placeholder");
+      } else {
+        var lName = $("#lastName").val();
+      }
+      let lastName = lName;
 
-            if($('#lastName').val() == ''){
-                var lName = $('#lastName').attr('placeholder');
-            } else {
-                var lName =$('#lastName').val();
-            }
-            let lastName =lName;
+      if ($("eMail").val() == "") {
+        var eM = $("#eMail").attr("placeholder");
+      } else {
+        var eM = $("#eMail").val();
+      }
+      let email = eM;
 
-            if($('eMail').val() == ''){
-                var eM = $('#eMail').attr('placeholder');
-            } else {
-                var eM =$('#eMail').val();
-            }
-            let email = eM;
+      if ($("phoneNumber").val() == "") {
+        var pN = $("#phoneNumber").attr("placeholder");
+      } else {
+        var pN = $("#phoneNumber").val();
+      }
+      let phoneNumber = pN;
 
-            if($('phoneNumber').val() == ''){
-                var pN = $('#phoneNumber').attr('placeholder');
-            } else {
-                var pN =$('#phoneNumber').val();
-            }
-            let phoneNumber = pN;
+      let photoUrl = $("#photoUrl").attr("src");
 
-            let photoUrl = $('#photoUrl').attr('src');
-
-             User.updateUser(firstName,lastName,email,phoneNumber, photoUrl);
-
-        })
-    }
-}
+      User.updateUser(firstName, lastName, email, phoneNumber, photoUrl);
+    });
+  },
+};
 
 User.getUser();
 User.bindEvents();

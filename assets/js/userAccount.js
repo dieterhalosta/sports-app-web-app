@@ -1,18 +1,18 @@
 window.User = {
-    API_URL: "http://localhost:8082",
+  API_URL: "http://localhost:8082",
 
-    getUser: function (){
-        let userId = 57
-        $.ajax({
-            method:"GET",
-            url:User.API_URL + "/users/" +userId
-        }).done(function (response){
-            User.displayUser(response);
-        })
-    },
+  getUser: function () {
+    let userId = 57;
+    $.ajax({
+      method: "GET",
+      url: User.API_URL + "/users/" + userId,
+    }).done(function (response) {
+      User.displayUser(response);
+    });
+  },
 
-    getUserHtml: function (user){
-        return `
+  getUserHtml: function (user) {
+    return `
          <div class="col-md-12 col-lg-12 mb-5">
             <div class="card bg-primary shadow-soft border-light p-2 p-md-3 p-lg-5">
             <!-- Profile Card -->
@@ -38,14 +38,14 @@ window.User = {
             <!-- End of Profile Card -->
             </div>
          </div>
-        `
-    },
+        `;
+  },
 
-    displayUser: function (user){
-        let userHtml = User.getUserHtml(user);
+  displayUser: function (user) {
+    let userHtml = User.getUserHtml(user);
 
-        $(`.UserCardInfo .row:first-child`).html(userHtml);
-    }
-}
+    $(`.UserCardInfo .row:first-child`).html(userHtml);
+  },
+};
 
 User.getUser();
